@@ -8,4 +8,7 @@ Rails.application.routes.draw do
     resources :customers, only:[:index, :show, :edit, :update]
     get 'homes/top' => 'homes#top'  #既に管理者側として適用されている
   end
+  scope module: :public do
+  resources :customers, only:[:show, :edit, :update]
+  end
 end
