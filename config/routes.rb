@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :items, expect:[:destroy]
   end
   scope module: :public do
+    root to: 'homes#top'
     resources :customers, only:[:show, :edit, :update]
   end
 end

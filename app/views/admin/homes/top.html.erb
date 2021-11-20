@@ -1,3 +1,13 @@
 <header><h2>admin site</h2></header>
-<main>hello customer</main>
-<footer></footer>
+<main>
+
+</main>
+<footer>
+  <% if admin_signed_in? %>
+    <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
+  <% else %>
+    <%= link_to '管理者権限でログイン', new_admin_session_path %><br>
+    <%= link_to '管理者アカウント生成', new_admin_registration_path %>
+  <% end %>
+
+</footer>
