@@ -1,0 +1,27 @@
+<h2>商品一覧</h2>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>商品名</th>
+      <th>価格</th>
+      <th>商品説明</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+<% @items.each do |item| %>
+  <tbody>
+    <tr>
+      <td><%= item.name %></td>
+      <td><%= item.price %></td>
+      <td><%= item.introduction %></td>
+    </tr>
+  </tbody>
+</table>
+<% end %>
+
+<%= link_to "商品追加", new_admin_item_path %>
