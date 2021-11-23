@@ -4,6 +4,8 @@
 </main>
 <footer>
   <% if admin_signed_in? %>
+    <%= link_to "顧客一覧", admin_customers_path %>
+    <%= link_to "商品一覧", admin_items_path %>
     <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
   <% else %>
     <%= link_to '管理者権限でログイン', new_admin_session_path %><br>
