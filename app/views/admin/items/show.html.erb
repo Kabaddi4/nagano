@@ -12,6 +12,9 @@
       <td><%= @item.name %></td>
       <td><%= @item.price %></td>
       <td><%= @item.introduction %></td>
+      <% if admin_signed_in? %>
+      <td><%= link_to '編集', edit_admin_item_path(@item.id) %></td>
+      <% end %>
     </tr>
   </tbody>
 </table>

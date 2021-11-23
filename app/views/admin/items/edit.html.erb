@@ -1,0 +1,9 @@
+<%= form_with model: @item,:url => {:action => :update}, local:true do |f| %>
+<p>商品名</p>
+<%= f.text_field :name %>
+<p>価格</p>
+<%= f.number_field :price %>
+<p>商品説明</p>
+<%= f.text_field :introduction %>
+<%= f.submit "編集" %>
+<% end %>

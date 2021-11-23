@@ -1,5 +1,6 @@
 <h2>新規投稿</h2>
 
+<%# undefied method ●●path　が出現する場合、:url=>~~の書き方が必要になってくる %>
 <%= form_with model: @item,:url => {:action => :create}, local:true do |f| %>
 <h4>商品名</h4>
 <%= f.text_field :name %>
