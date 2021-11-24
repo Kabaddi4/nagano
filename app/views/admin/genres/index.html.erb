@@ -1,0 +1,13 @@
+<div>
+  <% @genres.each do |genre| %>
+    <%= genre.name %><br>
+  <% end %>
+</div>
+
+<div>
+  <h3>ジャンルの追加</h3>
+  <%= form_with model: @genre, :url => {:action => :create}, local: true do |f| %>
+    <%= f.text_field :name %><br>
+    <%= f.submit "登録する" %>
+  <% end %>
+</div>
