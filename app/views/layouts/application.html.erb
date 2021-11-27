@@ -16,6 +16,8 @@
       <%= link_to "商品一覧", admin_items_path %>
       <%= link_to "商品追加", new_admin_item_path %>
       <%= link_to "ジャンル一覧/追加", admin_genres_path %>
+    <% elsif customer_signed_in? %>
+      <%= link_to "マイページ", customer_path(:id) %>
     <% else %>
     <% end %>
     </header>

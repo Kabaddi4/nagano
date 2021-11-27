@@ -1,6 +1,8 @@
 <% @customers.each do |customer| %>
+<p><%= customer.last_name %></p><p><%= customer.first_name %></p><br>
 <p><%= customer.created_at %></p><br>
 <p><%= customer.updated_at %></p>
+<p><%= link_to "編集", edit_admin_customer_path(:id) %></p>
 <% end %>
 <% if admin_signed_in? %>
   <p><%= link_to "Logout", destroy_admin_session_path, method: :delete %></p>
