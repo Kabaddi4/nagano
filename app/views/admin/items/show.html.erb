@@ -2,6 +2,7 @@
   <thead>
     <tr>
       <th>商品名</th>
+      <th></th>
       <th>価格</th>
       <th>商品説明</th>
     </tr>
@@ -10,6 +11,7 @@
   <tbody>
     <tr>
       <td><%= @item.name %></td>
+      <td><%= attachment_image_tag @item, :image, :fill, 60, 60 %></td>
       <td><%= @item.price %></td>
       <td><%= @item.introduction %></td>
       <% if admin_signed_in? %>
