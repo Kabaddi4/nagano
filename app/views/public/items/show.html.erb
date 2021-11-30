@@ -1,6 +1,10 @@
-<%= form_with model:@item, local:true do |f| %>
-  <%= @item.name %>
-  <%= attachment_image_tag @item, :image, :fill, 50, 50 %>
-  <%= @item.introduction %>
-  <%= @item.price %><br>
+<%= form_with model:@cart_item, local:true do |f| %>
+  <%= @item.name %><br>
+  <%= attachment_image_tag @item, :image, :fill, 50, 50 %><br>
+  <p>商品説明:<%= @item.introduction %></p>
+  <p>価格:<%= @item.price %></p>
+
+  <%= f.hidden_field :cart_item, value: :item_id %>
+  <p>数量:<%= f.select :amount, *[1..3] %></p>
+  <%= f.submit "カートに入れる" %>
 <% end %>

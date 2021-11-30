@@ -13,5 +13,6 @@ Rails.application.routes.draw do
     root to: 'homes#top'
     resources :customers, only:[:show, :edit, :update]
     resources :items, only:[:index, :show]
+    resources :cart_items, only:[:index, :update, :destroy, :destroy_all, :create]
   end
 end
