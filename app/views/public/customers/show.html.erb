@@ -1,7 +1,10 @@
 
+  <p><%= @customer.last_name_kana %>
+  <%= @customer.first_name_kana %></p>
+  <p><%= @customer.last_name %>
+  <%= @customer.first_name %></p>
 
-<p><%= @customer.created_at %></p><br>
-<p><%= @customer.updated_at %></p><br>
 <% if customer_signed_in? %>
-    <p><%= link_to "Logout", destroy_customer_session_path, method: :delete  %></p>
+  <p><%= link_to "編集", edit_customer_path(@customer.id) %></p>
+  <p><%= link_to "ログアウト", destroy_customer_session_path, method: :delete  %></p>
 <% end %>

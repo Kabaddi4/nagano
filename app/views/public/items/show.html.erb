@@ -1,6 +1,6 @@
 <%= form_with model:@item, local:true do |f| %>
   <%= @item.name %>
+  <%= attachment_image_tag @item, :image, :fill, 50, 50 %>
   <%= @item.introduction %>
   <%= @item.price %><br>
-  <%= %>
 <% end %>
