@@ -4,7 +4,9 @@
   <p>商品説明:<%= @item.introduction %></p>
   <p>価格:<%= @item.price %></p>
 
-  <%= f.hidden_field :cart_item, value: :item_id %>
+
+  <%= f.hidden_field :item_id, value: @item.id %>
   <p>数量:<%= f.select :amount, *[1..3] %></p>
+
   <%= f.submit "カートに入れる" %>
 <% end %>

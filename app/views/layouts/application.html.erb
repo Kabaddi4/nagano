@@ -19,6 +19,7 @@
     <% elsif customer_signed_in? %>
       <%= link_to "マイページ", customer_path(:id) %>
       <%= link_to "商品一覧", items_path %>
+      <%= link_to "カートを見る", cart_items_path %>
     <% else %>
     <% end %>
     </header>
