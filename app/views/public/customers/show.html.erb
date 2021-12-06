@@ -1,10 +1,14 @@
-
-  <p><%= @customer.last_name_kana %>
-  <%= @customer.first_name_kana %></p>
-  <p><%= @customer.last_name %>
-  <%= @customer.first_name %></p>
-
-<% if customer_signed_in? %>
-  <p><%= link_to "編集", edit_customer_path(@customer.id) %></p>
-  <p><%= link_to "ログアウト", destroy_customer_session_path, method: :delete  %></p>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <p>カナ：<%= @customer.last_name_kana %>
+      <%= @customer.first_name_kana %></p>
+      <p>氏名：<%= @customer.last_name %>
+      <%= @customer.first_name %></p>
+    <% if customer_signed_in? %>
+      <p><%= link_to "編集", edit_customer_path(@customer.id) %></p>
+      <p><%= link_to "ログアウト", destroy_customer_session_path, method: :delete  %></p>
+    <% end %>
+    </div>
+  </div>
+</div>
