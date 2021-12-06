@@ -9,8 +9,16 @@ class Public::CartItemsController < ApplicationController
     cart_item.item_id = item.id
     cart_item.customer_id = current_customer.id
     cart_item.amount = params[:cart_item][:amount] #目からウロコ。直接取得できる。
-    cart_item.save
-    redirect_to items_path
+    if CartItem.find_by(id: CartItem.ids)
+      #カートアイテムの重複してる商品の情報を取り出し、取得した数(amount)を加算する。
+    else
+      cart_item.save
+      redirect_to items_path
+    end
+  end
+
+  def destroy
+
   end
 
   private

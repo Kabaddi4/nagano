@@ -3,6 +3,7 @@
   <%= attachment_image_tag @item, :image, :fill, 50, 50 %><br>
   <p>商品説明:<%= @item.introduction %></p>
   <p>価格:<%= @item.price %></p>
+  
 
 
   <%= f.hidden_field :item_id, value: @item.id %>
