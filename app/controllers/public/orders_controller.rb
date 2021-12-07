@@ -9,6 +9,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def create
+    order = Order.new
   end
 
   def show
