@@ -1,0 +1,6 @@
+<%= form_with model:@address, local:true do |f| %>
+  <p>宛名：<%= f.text_field :name %></p>
+  <p>郵便番号：<%= f.number_field :postal_code %></p>
+  <p>住所：<%= f.text_field :address %></p>
+  <p><%= f.submit "変更" %></p>
+<% end %>

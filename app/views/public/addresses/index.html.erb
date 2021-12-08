@@ -1,25 +1,28 @@
 <div class="container">
   <div class="row">
-<table>
-  <thead>
-    <tr>
-      <th class="text-start">会員id</th>
-      <th class="text-center">宛名</th>
-      <th>郵便番号</th>
-      <th class="text-center">住所</th>
-    </tr>
-  </thead>
-  <%= @addresses.each do |address| %>
+  <table>
+    <thead>
+      <tr>
+        <th class="text-start">会員id</th>
+        <th class="text-center">宛名</th>
+        <th>郵便番号</th>
+        <th class="text-center">住所</th>
+      </tr>
+    </thead>
+    <div class="col-md6">
+    <% @addresses.each do |address| %>
     <tbody>
       <tr>
         <td><%= address.customer_id %></td>
         <td><%= address.name %></td>
         <td><%= address.postal_code %></td>
         <td><%= address.address %></td>
+        <td><%= link_to "編集", edit_address_path(address.id) %></td>
       </tr>
     </tbody>
     <% end %>
-    </table>
+    </div>
+  </table>
   </div>
 </div>
 
@@ -28,6 +31,7 @@
   <p>宛名：<%= f.text_field :name %></p>
   <p>郵便番号：<%= f.number_field :postal_code %></p>
   <p>住所：<%= f.text_field :address %></p>
+  <p></p>
   <%= f.submit "住所登録" %>
 <% end %>
 
