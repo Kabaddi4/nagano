@@ -9,8 +9,11 @@ class Public::CartItemsController < ApplicationController
     cart_item.item_id = item.id
     cart_item.customer_id = current_customer.id
     cart_item.amount = params[:cart_item][:amount] #目からウロコ。直接取得できる。
-    if CartItem.find_by(id: CartItem.ids)
+    if CartItem.find_by(item_id: params[:cart_item][:item_id]).present? #present? は、emptyやnilと似た意味のメソッド
       #カートアイテムの重複してる商品の情報を取り出し、取得した数(amount)を加算する。
+      cart_item.amount += params[:cart_item][:amount].to_i
+      cart_item.save
+      redirect_to items_path
     else
       cart_item.save
       redirect_to items_path
