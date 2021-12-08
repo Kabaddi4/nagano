@@ -5,7 +5,10 @@
       <p class="px-3">カナ：<%= @customer.last_name_kana %>
       <%= @customer.first_name_kana %></p></div>
       <p class="px-3">氏名：<%= @customer.last_name %>
-      <%= @customer.first_name %></p>
+      <%= @customer.first_name %></p><br>
+
+      <p>登録郵便番号：<%= @customer.postal_code %></p><br>
+      <p>登録住所：<%= @customer.customer_address %></p>
     <% if customer_signed_in? %>
       <div class="my-5">
       <p class="btn btn-success"><%= link_to "編集", edit_customer_path(@customer.id), class: "text-light" %></p><br>
