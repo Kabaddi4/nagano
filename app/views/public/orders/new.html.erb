@@ -24,7 +24,27 @@
   </div>
   <div class="row">
     <div class="col-md-6">
-
+    <%= f.radio_button :address, current_customer.customer_address %>
+    <%= f.label :address, "ご自身の住所" %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <%= f.radio_button :address, Address %>
+      <%= f.label :address, "登録住所から選択" %>
+      <%= f.select :address_id, options_from_collection_for_select(Address.all, :id, :full_address) %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <%= f.radio_button :address, @order.address %>
+      <%= f.label :address, "新しいお届け先" %><br>
+      <p>郵便番号(ハイフンなし)<%= f.text_field :postage, label:"郵便番号" %></p>
+      <p>住所<%= f.text_field :address %></p>
+      <p>宛名<%= f.text_field :name %></p>
+    </div>
+  </div>
+    <%= f.submit "確認画面へ進む", class:"btn btn-primary" %>
     </div>
   </div>
   <% end %>
