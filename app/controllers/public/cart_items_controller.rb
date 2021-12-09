@@ -9,7 +9,7 @@ class Public::CartItemsController < ApplicationController
     cart_item.item_id = item.id
     cart_item.customer_id = current_customer.id
     cart_item.amount = params[:cart_item][:amount]
-    if current_customer.cart_items.find_by(item_id: params[:cart_item][:item_id]).present?
+    if current_customer.cart_item.find_by(item_id: params[:cart_item][:item_id]).present?
       plus_cart_item = CartItem.find_by(item_id: params[:cart_item][:item_id])
       sum = params[:cart_item][:amount]
       plus_cart_item.update(amount: plus_cart_item.amount += sum.to_i )   #update_attribute(amount)
@@ -21,6 +21,12 @@ class Public::CartItemsController < ApplicationController
   end
 
   def destroy
+  end
+
+  def destroy_all
+    @cart_items = CartItem.all
+    @cart_items.destroy_all
+    redirect_to cart_items_path
   end
 
   private
