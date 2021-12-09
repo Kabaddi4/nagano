@@ -1,11 +1,25 @@
-<% @customers.each do |customer| %>
-<p><%= customer.last_name %></p><p><%= customer.first_name %></p><br>
-<p><%= customer.created_at %></p><br>
-<p><%= customer.updated_at %></p>
-<p><%= link_to "編集", edit_admin_customer_path(:id) %></p>
-<% end %>
-<% if admin_signed_in? %>
-  <p><%= link_to "Logout", destroy_admin_session_path, method: :delete %></p>
-<% end %>
+<table>
+  <thead>
+    <tr>
+      <th>姓</th>
+      <th>名</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @customers.each do |customer| %>
+    <td><%= customer.last_name %></td>
+    <td><%= customer.first_name %></td>
+    <td><%= customer.created_at %></td>
+    <td><%= customer.updated_at %></td>
+    <td><%= link_to "編集", edit_admin_customer_path(:id) %></td>
+    <% end %>
+    <% if admin_signed_in? %>
+    <td><%= link_to "Logout", destroy_admin_session_path, method: :delete %></td>
+    <% end %>
+    <%= link_to "商品一覧へ", admin_items_path %>
+    <tr>
 
-<%= link_to "商品一覧へ", admin_items_path %>
+    </tr>
+  </tbody>
+</table>
+

@@ -8,20 +8,19 @@ class Public::CartItemsController < ApplicationController
     item = Item.find(params[:cart_item][:item_id])
     cart_item.item_id = item.id
     cart_item.customer_id = current_customer.id
-    cart_item.amount = params[:cart_item][:amount] #目からウロコ。直接取得できる。
-    if CartItem.find_by(item_id: params[:cart_item][:item_id]).present? #present? は、emptyやnilと似た意味のメソッド
-      #カートアイテムの重複してる商品の情報を取り出し、取得した数(amount)を加算する。
-      cart_item.amount += params[:cart_item][:amount].to_i
-      cart_item.save
-      redirect_to items_path
+    cart_item.amount = params[:cart_item][:amount]
+    if current_customer.cart_items.find_by(item_id: params[:cart_item][:item_id]).present?
+      plus_cart_item = CartItem.find_by(item_id: params[:cart_item][:item_id])
+      sum = params[:cart_item][:amount]
+      plus_cart_item.update(amount: plus_cart_item.amount += sum.to_i )   #update_attribute(amount)
+      redirect_to cart_items_path
     else
       cart_item.save
-      redirect_to items_path
+      redirect_to cart_items_path
     end
   end
 
   def destroy
-
   end
 
   private
