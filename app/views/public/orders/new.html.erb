@@ -24,22 +24,22 @@
   </div>
   <div class="row">
     <div class="col-md-6">
-    <%= f.radio_button :status, 0 %> <%#radio_buttonをどこに選択したか　をここで送っている%>
-    <%= f.label :status0, "ご自身の住所" %> <%#タイトル名。つまり label:値の出力　で画面を作っている。%>
+    <%= f.radio_button :status, 1 %> <%#radio_buttonをどこに選択したか　をここで送っている%>
+    <%= f.label :status1, "ご自身の住所" %> <%#タイトル名。つまり label:値の出力　で画面を作っている。%>
     <%= current_customer.customer_address %> <%#あくまで表記名にすぎない%>
     </div>
   </div>
   <div class="row">
     <div class="col-md-6">
-      <%= f.radio_button :status, 1 %>
-      <%= f.label :status1, "登録住所から選択" %>
+      <%= f.radio_button :status, 2 %>
+      <%= f.label :status2, "登録住所から選択" %>
       <%= f.select :registered, options_from_collection_for_select(Address.all, :id, :full_address) %> <%#:full_addressはaddressモデルで記述したメソッド%>
     </div>
   </div>
   <div class="row">
     <div class="col-md-6">
-      <%= f.radio_button :status, 2 %>
-      <%= f.label :start2, "新しいお届け先" %><br>
+      <%= f.radio_button :status, 3 %>
+      <%= f.label :status3, "新しいお届け先" %><br>
       <%= f.label :postage, "郵便番号(ハイフンなし)" %>
       <%= f.text_field :postage %><br>
       <%= f.label :address, "住所" %>

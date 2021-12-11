@@ -1,0 +1,27 @@
+<div class="container">
+  <table>
+    <thead>
+      <tr>
+        <th>商品名</th>
+        <th>税込価格</th>
+        <th>数量</th>
+        <th>総計</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @cart_items.each do |cart| %>
+      <tr>
+        <td><%= cart.item.name %></td>
+        <td><%= (cart.item.price).to_s(:delimited) %></td>
+        <td><%= cart.amount %></td>
+        <td><%= (cart.item.price * cart.amount).to_s(:delimited) %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+  <div class="row">
+    <p>お届け先</p>
+    <%= @order.address %>
+  </div>
+
+</div>
