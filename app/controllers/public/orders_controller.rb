@@ -18,10 +18,12 @@ class Public::OrdersController < ApplicationController
 
   def confirm
     @order = Order.new(order_params)
-    if params[:order][:status] == "1"
+    binding.pry #if params[:order][:status] == 1
     @order.postal_code = current_customer.postal_code
-    @order.address = current_customer.address
-    @order.name = current_customer.first_name + current_customer.last_name
+    @order.address = current_customer.customer_address
+    @order.name = current_customer.last_name + current_customer.first_name
+    #elsif params[:order][:status] == 2
+    #@order.name = Address.find(params[:order][:registered]).name
   end
 
   private
