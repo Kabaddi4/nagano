@@ -24,4 +24,10 @@
     <%= @order.address %>
   </div>
 
+  <%= form_with model:@order local:true do |f| %>
+    <%= f.hidden_field :postal_code %>
+    <%= f.hidden_field :address %>
+    <%= f.hidden_field :name %>
+    <%= f.submit "注文を確定する" %>
+  <% end %>
 </div>

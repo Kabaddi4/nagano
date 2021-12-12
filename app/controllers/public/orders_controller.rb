@@ -9,7 +9,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def create
-
+    
   end
 
   def show
@@ -17,6 +17,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def confirm
+    binding.pry #params[:order][:status](何処が選択されたか) @order(Orderモデル)new_address = current_customer.addresses.new(address_params)
     @order = Order.new(order_params)
     if params[:order][:status] == 1
       @order.postal_code = current_customer.postal_code
@@ -27,7 +28,7 @@ class Public::OrdersController < ApplicationController
       @order.address = Address.find(params[:order][:registered]).address
       @order.name = Address.find(params[:order][:registered]).name
     elsif params[:order][:status] == 3
-      new_address = current_customer.addresses.new(address_params)
+      new_address = current_customer.addresses.new(address_params)  #あとここのみ。
     end
     @cart_items = current_customer.cart_item.all
 

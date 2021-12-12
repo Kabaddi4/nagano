@@ -1,17 +1,25 @@
 <table>
   <thead>
-    <tr>
+    <tr class="text-center">
       <th>姓</th>
       <th>名</th>
+      <th>住所</th>
+      <th>郵便番号</th>
+      <th>登録日時</th>
+      <th>更新日時</th>
     </tr>
   </thead>
   <tbody>
     <% @customers.each do |customer| %>
-    <td><%= customer.last_name %></td>
-    <td><%= customer.first_name %></td>
-    <td><%= customer.created_at %></td>
-    <td><%= customer.updated_at %></td>
-    <td><%= link_to "編集", edit_admin_customer_path(:id) %></td>
+    <tr>
+      <td><%= customer.last_name %></td>
+      <td><%= customer.first_name %></td>
+      <td><%= customer.customer_address %></td>
+      <td><%= customer.postal_code %></td>
+      <td><%= customer.created_at %></td>
+      <td><%= customer.updated_at %></td>
+      <td><%= link_to "編集", edit_admin_customer_path(:id) %></td>
+    </tr>
     <% end %>
     <% if admin_signed_in? %>
     <td><%= link_to "Logout", destroy_admin_session_path, method: :delete %></td>
