@@ -10,15 +10,19 @@
     </tr>
   </thead>
   <tbody>
-    <% @customers.each do |customer| %>
-    <tr>
-      <td><%= customer.last_name %></td>
-      <td><%= customer.first_name %></td>
-      <td><%= customer.customer_address %></td>
-      <td><%= customer.postal_code %></td>
-      <td><%= customer.created_at %></td>
-      <td><%= customer.updated_at %></td>
-      <td><%= link_to "編集", edit_admin_customer_path(:id) %></td>
+  <% @customers.each do |customer| %>
+  <tr>
+    <div class="px-3"
+    <td><%= customer.last_name %></td>
+    </div>
+    <td><%= customer.first_name %></td>
+    <td class="px-3"><%= customer.customer_address %></td>
+    <td><%= customer.postal_code %></td>
+    <td class="px-3"><%= customer.created_at %></td>
+    <td><%= customer.updated_at %></td>
+    <td class="px-3">
+    <%= link_to "詳細", admin_customer_path(customer.id) %></td>
+    <td><%= link_to "編集", edit_admin_customer_path(customer.id) %></td>
     </tr>
     <% end %>
     <% if admin_signed_in? %>

@@ -24,7 +24,7 @@
   </div>
   <div class="row">
     <div class="col-md-6">
-    <%= f.radio_button :status, 1 %> <%#radio_buttonをどこに選択したか　をここで送っている%>
+    <%= f.radio_button :status, 1 %> <%#radio_buttonをどこに選択したか　をここで送っている。　型はstringなので定義に注意%>
     <%= f.label :status1, "ご自身の住所" %> <%#タイトル名。つまり label:値の出力　で画面を作っている。%>
     <%= current_customer.customer_address %> <%#あくまで表記名にすぎない%>
     </div>

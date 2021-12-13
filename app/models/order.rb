@@ -5,7 +5,5 @@ class Order < ApplicationRecord
   belongs_to :customer
   has_many :order_detail
 
-  validates :name, presence: true
-  validates :address, presence: true
-  validates :postal_code, presence: true
+  
 end

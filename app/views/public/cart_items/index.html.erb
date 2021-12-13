@@ -4,6 +4,7 @@
         <th></th>
         <th>価格</th>
         <th>個数</th>
+        <th>合計金額</th>
     </thead>
 
     <tbody>
@@ -13,10 +14,15 @@
             <td><%= attachment_image_tag cart_item.item, :image, :fill, 50, 50 %></td>
             <td><%= cart_item.item.with_tax_price %></td>
             <td><%= cart_item.amount %></td>
+            <td><%= cart_item.subtotal %></td>
         </tr>
+        <% @total += cart_item.subtotal %>
         <% end %>
     </tbody>
 </table>
 
-<%= link_to "注文する", new_order_path %>
-<%= link_to "カートを空にする", destroy_all_path, method: :delete %>
+<div class="my-2">合計金額：<%= @total %></div><br>
+<div class="">
+    <%= link_to "注文する", new_order_path %>
+    <%= link_to "カートを空にする", destroy_all_path, method: :delete %>
+</div>

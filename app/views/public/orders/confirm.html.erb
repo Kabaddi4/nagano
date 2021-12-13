@@ -12,22 +12,17 @@
     <% @cart_items.each do |cart| %>
       <tr>
         <td><%= cart.item.name %></td>
-        <td><%= (cart.item.price).to_s(:delimited) %></td>
+        <td><%= (cart.item.with_tax_price).to_s(:delimited) %></td>
         <td><%= cart.amount %></td>
-        <td><%= (cart.item.price * cart.amount).to_s(:delimited) %></td>
+        <td><%= cart.subtotal %></td>
       </tr>
+      <% @total += cart.subtotal %>
     <% end %>
     </tbody>
   </table>
   <div class="row">
-    <p>お届け先</p>
-    <%= @order.address %>
+    支払方法:<%= @order.payment_method %>
+    お届け先:<%= @order.postal_code %><%= @order.address %><%= @order.name %>
+    請求額：<%= @total %>
   </div>
-
-  <%= form_with model:@order local:true do |f| %>
-    <%= f.hidden_field :postal_code %>
-    <%= f.hidden_field :address %>
-    <%= f.hidden_field :name %>
-    <%= f.submit "注文を確定する" %>
-  <% end %>
 </div>

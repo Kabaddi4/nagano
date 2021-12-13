@@ -9,7 +9,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def create
-    
+
   end
 
   def show
@@ -17,29 +17,29 @@ class Public::OrdersController < ApplicationController
   end
 
   def confirm
-    binding.pry #params[:order][:status](何処が選択されたか) @order(Orderモデル)new_address = current_customer.addresses.new(address_params)
-    @order = Order.new(order_params)
-    if params[:order][:status] == 1
+     #params[:order][:status](何処が選択されたか) @order(Orderモデル)new_address = current_customer.addresses.new(address_params)
+    if params[:order][:status] == "1"
+      @order = Order.new(order_params)
       @order.postal_code = current_customer.postal_code
       @order.address = current_customer.customer_address
       @order.name = current_customer.last_name + current_customer.first_name
-    elsif params[:order][:status] == 2
-      @order.postal_code = Address.find(params[:order][:registered]).postal_code
-      @order.address = Address.find(params[:order][:registered]).address
-      @order.name = Address.find(params[:order][:registered]).name
-    elsif params[:order][:status] == 3
-      new_address = current_customer.addresses.new(address_params)  #あとここのみ。
+    elsif params[:order][:status] == "2"
+      @order = Order.new(order_params)
+      @address = Address.find(params[:order][:registered])
+      @order.postal_code = @address.postal_code
+      @order.address = @address.address
+      @order.name = @address.name
+    elsif params[:order][:status] == "3"
+      @order = Order.new(order_params)
+    else
+      render :new
     end
     @cart_items = current_customer.cart_item.all
-
+    @total = 0
   end
 
   private
   def order_params
     params.require(:order).permit(:payment_method, :postal_code, :address, :name)
-  end
-
-  def address_params
-    params.require(:order).permit(:address, :name, :postage)
   end
 end
