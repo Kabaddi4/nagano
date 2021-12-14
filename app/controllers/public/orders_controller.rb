@@ -9,7 +9,26 @@ class Public::OrdersController < ApplicationController
   end
 
   def create
-
+    #注文情報をform経由で、カート情報はモデル経由で送る？
+    order = Order.new(order_params)
+    order.postal_code = params[:order][:postal_code]
+    order.address = params[:order][:address]
+    order.name = params[:order][:name]
+    order.payment_method = params[:order][:payment_method]
+    order.total_payment = params[:order][:total_payment]
+    #保存
+    order.save
+    #カート内情報を保存
+    cart_items = current_customer.cart_item.all
+      cart_items.each do |cart|
+        order_detail = OrderDetail.new
+        order_detail.item_id = cart.item_id
+        order_detail.order_id = order.id
+        order_detail.amount = cart.amount
+        order_detail.price = cart.item.price
+        order_detail.save
+      end
+    redirect_to :complete
   end
 
   def show
@@ -38,8 +57,15 @@ class Public::OrdersController < ApplicationController
     @total = 0
   end
 
+  def complete
+  end
+
   private
   def order_params
-    params.require(:order).permit(:payment_method, :postal_code, :address, :name)
+    params.require(:order).permit(:payment_method, :postal_code, :address, :name, :total_payment)
+  end
+
+  def total_params
+    params.require(:order).permit(:total_payment)
   end
 end
