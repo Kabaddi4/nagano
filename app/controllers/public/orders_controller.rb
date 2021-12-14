@@ -11,12 +11,15 @@ class Public::OrdersController < ApplicationController
   def create
     #注文情報をform経由で、カート情報はモデル経由で送る？
     order = Order.new(order_params)
+    order.customer_id = current_customer.id
     order.postal_code = params[:order][:postal_code]
     order.address = params[:order][:address]
     order.name = params[:order][:name]
     order.payment_method = params[:order][:payment_method]
     order.total_payment = params[:order][:total_payment]
+    order.postage = 800
     #保存
+    binding.pry
     order.save
     #カート内情報を保存
     cart_items = current_customer.cart_item.all
