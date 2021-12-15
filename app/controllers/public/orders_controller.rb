@@ -38,7 +38,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def show
-
+    
   end
 
   def confirm
