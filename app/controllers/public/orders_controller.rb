@@ -18,17 +18,20 @@ class Public::OrdersController < ApplicationController
     order.payment_method = params[:order][:payment_method]
     order.total_payment = params[:order][:total_payment]
     order.postage = 800
+    order.status = "true"
     #保存
-    binding.pry
+
     order.save
     #カート内情報を保存
     cart_items = current_customer.cart_item.all
+
       cart_items.each do |cart|
         order_detail = OrderDetail.new
         order_detail.item_id = cart.item_id
         order_detail.order_id = order.id
         order_detail.amount = cart.amount
         order_detail.price = cart.item.price
+        order_detail.making_status = 0
         order_detail.save
       end
     redirect_to :complete
