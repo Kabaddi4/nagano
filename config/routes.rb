@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :genres, only:[:index, :create, :edit, :update]
     resources :customers, only:[:index, :show, :edit, :update]
     resources :items, expect:[:destroy]
+    resources :orders, only:[:show, :update]
   end
   scope module: :public do
     root to: 'homes#top'

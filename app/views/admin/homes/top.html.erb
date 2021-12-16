@@ -1,6 +1,23 @@
 <header><h2>admin site</h2></header>
 <main>
-
+  <% if admin_signed_in? %>
+    <%#<% @orders.each do |order| %><%# end %>
+    <table>
+      <thead>
+        <tr>
+          <th>購入日時</th>
+          <th>購入者</th>
+          <th>注文個数</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  <% else %>
+  <% end %>
 </main>
 <footer>
   <% if admin_signed_in? %>
