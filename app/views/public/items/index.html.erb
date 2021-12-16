@@ -17,6 +17,7 @@
           <td><%= item.introduction %></td>
           <td><%= item.price %></td>
           <td><%= link_to "詳細", item_path(item.id) %></td> <%#path(id)や(:id)ではURLがおかしくなるので%>
+          
         </tr>
       </tbody>
     <% end %>

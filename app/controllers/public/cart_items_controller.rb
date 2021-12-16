@@ -22,6 +22,11 @@ class Public::CartItemsController < ApplicationController
   end
 
   def destroy
+    cart_item = CartItem.find(params[:id])
+    if cart_item.customer_id == current_customer.id
+      cart_item.destroy
+      redirect_to cart_items_path
+    end
   end
 
   def destroy_all
