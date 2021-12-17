@@ -23,7 +23,7 @@ class Public::OrdersController < ApplicationController
 
     order.save
     #カート内情報を保存
-    cart_items = current_customer.cart_item.all
+    cart_items = current_customer.cart_items.all
 
       cart_items.each do |cart|
         order_detail = OrderDetail.new
@@ -39,7 +39,9 @@ class Public::OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+    @orders = @order.order_details
     @order_detail = OrderDetail.find(params[:id])#OrderDetail.find(params[:id])
+    @total = @order.total_payment + @order.postage
   end
 
   def confirm
@@ -60,7 +62,7 @@ class Public::OrdersController < ApplicationController
     else
       render :new
     end
-    @cart_items = current_customer.cart_item.all
+    @cart_items = current_customer.cart_items.all
     @total = 0
   end
 

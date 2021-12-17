@@ -13,21 +13,30 @@
 
   <div class="row">
     <div class="col">
-      注文した商品
+      <h4>注文した商品</h4>
     </div>
   </div>
   <div class="row">
+  <% @orders.each do |order| %>
+    商品名：<%= order.item.name %>
+    単価：<%= order.item.price %>
+    個数：<%= order.amount %>
+    小計<%= order.price * order.amount %>
+    <br>
+  <% end %>
+  </div>
+
+  <div class="row">
     <div class="col">
-      商品名：<%= @order_detail.item.name %>
-    </div>
-    <div class="col">
-      単価：<%= @order_detail.item.price %>
-    </div>
-    <div class="col">
-      個数：<%= @order_detail.amount %>
-    </div>
-    <div class="col">
-      小計：<%= @order_detail.price %>
+    <h4 class="my-3">請求情報</h4>
+      <div class="px-2">
+      商品合計(税込)：<%= @order.total_payment %>
+      送料：<%= @order.postage %>
+      支払金額：<%= @total %>
+      </div>
     </div>
   </div>
+
 </div>
+
+
