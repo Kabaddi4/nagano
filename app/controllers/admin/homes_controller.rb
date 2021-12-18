@@ -1,6 +1,5 @@
 class Admin::HomesController < ApplicationController
   def top
-    binding.pry
-    @orders = Order.all
+    @orders = OrderDetail.all
   end
 end
