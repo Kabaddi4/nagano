@@ -13,11 +13,10 @@
       <tbody>
         <tr>
           <td><%= item.name %></td>
-          <td><%= attachment_image_tag item, :image, :fill, 50, 50 %></td>
+          <td><%= attachment_image_tag item, :image, :fill, 80, 80, format: "jpeg" %></td>
           <td><%= item.introduction %></td>
           <td><%= item.price %></td>
           <td><%= link_to "詳細", item_path(item.id) %></td> <%#path(id)や(:id)ではURLがおかしくなるので%>
-          
         </tr>
       </tbody>
     <% end %>
