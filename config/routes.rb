@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   end
   scope module: :public do
     root to: 'homes#top'
+    get 'about' => 'homes#about'
     resources :customers, only:[:show, :edit, :update]
     get '/customers/unsubscribe' => 'customers#unsubscribe', as: 'unsubscribe'
     patch 'customers/withdrawal' => 'customers#withdraw', as: 'withdraw'
