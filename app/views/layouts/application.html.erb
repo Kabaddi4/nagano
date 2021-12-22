@@ -33,12 +33,10 @@
               <%= link_to "ログアウト", destroy_admin_session_path, class:"mx-3", method: :delete %>
             </li>
 
+
             <% elsif customer_signed_in? %>
             <li class="nav-item">
               <%= link_to "マイページ", customer_path(:id), class: 'nav-link text-dark' %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "配送先一覧/登録", addresses_path, class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item">
               <%= link_to "商品一覧", items_path, class: 'nav-link text-dark' %>
@@ -47,11 +45,9 @@
               <%= link_to "カートを見る", cart_items_path, class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item">
-              <%= link_to "注文履歴", orders_path, class: 'nav-link text-dark' %>
-            </li>
-            <li class="nav-item">
               <%= link_to 'ログアウト', destroy_customer_session_path, class: 'nav-link text-dark', method: :delete %>
             </li>
+            <p class="text-center">ようこそ、<%= current_customer.last_name %>さん</p>
             <% else %>
             <li class="nav-item">
               <%= link_to "About", about_path, class: 'nav-link text-dark' %>

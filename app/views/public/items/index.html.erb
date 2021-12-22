@@ -1,25 +1,13 @@
 <div class="container">
   <div class="row">
-    <table>
-      <thead>
-        <tr>
-          <th>商品名</th>
-          <th></th></th>
-          <th>商品説明</th>
-          <th>価格</th>
-        </tr>
-      </thead>
+    <h3 class="col-md-12">商品一覧</h3>
     <% @items.each do |item| %>
-      <tbody>
-        <tr>
-          <td><%= item.name %></td>
-          <td><%= attachment_image_tag item, :image, :fill, 80, 80, format: "jpeg" %></td>
-          <td><%= item.introduction %></td>
-          <td><%= item.price %></td>
-          <td><%= link_to "詳細", item_path(item.id) %></td> <%#path(id)や(:id)ではURLがおかしくなるので%>
-        </tr>
-      </tbody>
+    <div class="col-md-3">
+      <%= attachment_image_tag item, :image, :fill, 160, 120, format: "jpeg" %>
+      <%= item.name %>
+      <%= item.price %>
+      <%= link_to "詳細", item_path(item.id) %><%#path(id)や(:id)ではURLがおかしくなるので%>
+    </div>
     <% end %>
-    </table>
   </div>
 </div>

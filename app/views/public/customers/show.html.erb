@@ -1,20 +1,34 @@
+<% if customer_signed_in? %>
 <div class="container">
+  <div class="row">
+    <div class="col-6">
+    <p class="text-center mt-3">マイページ</p>
+    </div>
+    <p class="font-weight-bold">登録情報</p><%= link_to "編集する", edit_customer_path(@customer.id), class: "btn btn-success font-weight-bold" %><br>
+  </div>
+
   <div class="row">
     <div class="col-md-6">
       <div class="mt-4">
+      <p class="px-3">氏名<%= @customer.last_name %>
+      <%= @customer.first_name %></p>
       <p class="px-3">カナ：<%= @customer.last_name_kana %>
-      <%= @customer.first_name_kana %></p></div>
-      <p class="px-3">氏名：<%= @customer.last_name %>
-      <%= @customer.first_name %></p><br>
-
+      <%= @customer.first_name_kana %></p>
       <p>登録郵便番号：<%= @customer.postal_code %></p><br>
       <p>登録住所：<%= @customer.customer_address %></p>
-    <% if customer_signed_in? %>
-      <div class="my-5">
-      <p class="btn btn-success"><%= link_to "編集", edit_customer_path(@customer.id), class: "text-light" %></p><br>
-      <p class="btn btn-success"><%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "text-light"  %></p>
       </div>
-    <% end %>
+    </div>
+  </div>
+
+  <div class="row">
+    <p class="font-weight-bold">配送先</p><%= link_to "一覧を見る", addresses_path, class: "btn btn-primary" %>
+    <p class="font-weight-bold">注文履歴</p><%= link_to "一覧を見る", orders_path, class: "btn btn-primary" %>
+  </div>
+
+
+      <p class="btn btn-success"><%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "text-light"  %></p>
+
     </div>
   </div>
 </div>
+<% end %>
