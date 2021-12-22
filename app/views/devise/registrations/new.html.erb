@@ -1,7 +1,7 @@
 <h2>Sign up</h2>
 
 <%= form_with model: @customer, url: customer_registration_path, local: true do |f| %>
-  <%= render "public/users/shared/error_messages", resource: resource %>
+  <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
     <%= f.label :last_name %><br />
@@ -36,4 +36,4 @@
   </div>
 <% end %>
 
-<%= render "public/users/shared/links" %>
+<%= render "devise/shared/links" %>
