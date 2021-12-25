@@ -2,6 +2,7 @@ class Public::CartItemsController < ApplicationController
   def index
     @cart_items = current_customer.cart_items.all
     @total = 0
+    @amount = current_customer.cart_items.new
   end
 
   def create
@@ -20,9 +21,10 @@ class Public::CartItemsController < ApplicationController
       redirect_to cart_items_path
     end
   end
-  
+
   def update
-    
+    binding.pry
+    @amount = params[:amount]
   end
 
   def destroy
