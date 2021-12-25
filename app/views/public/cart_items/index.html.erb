@@ -15,9 +15,9 @@
             <tr>
                 <td><%= attachment_image_tag cart_item.item, :image, :fill, 50, 50 %><%= cart_item.item.name %></td>
                 <td class="text-center"><%= cart_item.item.with_tax_price %></td>
-                <%= form_with model:@amount, local:true do |f| %>
-                <td><%= f.select :amount, *[1..5] %><%= f.submit "更新" %></submit></td>
-                <% end %>
+            <%= form_with model:@amount, url: "cart_items/#{cart_item.id}", method: :put, local:true do |f| %>
+                <td><%= f.select :amount, *[1..5] %><%= f.submit "更新", class: "btn btn-success" %></submit></td>
+            <% end %>
                 <td class="text-center"><%= cart_item.subtotal %></td>
                 <td><%= link_to "削除", "/cart_items/#{cart_item.id}", method: :delete %></td>
             </tr>
