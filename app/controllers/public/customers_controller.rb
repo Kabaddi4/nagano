@@ -15,7 +15,6 @@ class Public::CustomersController < ApplicationController
   end
 
   def unsubscribe
-    binding.pry
     @customer = Customer.find_by(id: params[:id])
   end
 
@@ -23,7 +22,7 @@ class Public::CustomersController < ApplicationController
     @customer = Customer.find_by(id: params[:id])
     @customer.update(is_deleted: true)
     reset_session
-    redirect_to 
+    redirect_to
   end
 
   private
