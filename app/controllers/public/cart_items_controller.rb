@@ -24,10 +24,9 @@ class Public::CartItemsController < ApplicationController
 
   def update
     binding.pry
-    update_amount = CartItem.find(cart_item_params[:id])
+    @amount = CartItem.find(cart_item_params[:id])
     @amount = params[:cart_item][:amount]
-    update_amount = @amount
-    update_amount.update
+    @amount.update
     redirect_to cart_items_path
   end
 
