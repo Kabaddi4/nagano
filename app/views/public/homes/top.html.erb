@@ -1,21 +1,34 @@
 <div class="container">
   <div class="row">
+    <div class="col-lg-6">
     <p>ようこそ、ながのCAKEへ！<br>
     このサイトは、ケーキ販売のECサイトになります。<br>
     会員でない方も商品の閲覧はできますが、<br>
     購入には会員登録が必要になります。</p>
+    </div>
   </div>
 
   <div class="row">
-  <h3 class="font-weight-bold">新着商品</h3>
+    <div class="col-lg-4">
+    <h3 class="font-weight-bold">新着商品</h3>
+    </div>
   </div>
+
 
   <div class="row">
   <% @homes.each do |home| %>
+    <div class="col-lg-3">
+    <%= attachment_image_tag home, :image, :fill, 160, 120, format: "jpeg" %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-3">
     <p class="font-weight-bold">商品名<%= home.name %></p>
     <p class="font-weight-bold">￥<%= home.price %></p>
-  <% end %>
+    </div>
   </div>
+  <% end %>
+
 
   <div class="row">
     <%= link_to "全ての商品を見る>", items_path %> <%#右下の端へ%>

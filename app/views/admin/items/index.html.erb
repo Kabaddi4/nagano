@@ -1,5 +1,7 @@
-<h2>商品一覧</h2>
-
+<div class="container">
+  <div class="row">
+  <h2>商品一覧</h2>
+  </div>
 
 <table>
   <thead>
@@ -8,20 +10,16 @@
       <th>商品名</th>
       <th>税抜価格</th>
       <th>ジャンル</th>
-      <th>ステータス</th>
     </tr>
   </thead>
 <% @items.each do |item| %>
   <tbody>
     <tr>
-      <td><%= item.id %></td>
-      <td><%= link_to item.name, admin_item_path(item.id) %></td>
-      <td><%= item.price %></td>
-      <td><%= item.genre.name %></td>
+      <td class="text-center"><%= item.id %></td>
+      <td class="text-center"><%= link_to item.name, admin_item_path(item.id) %></td>
+      <td class="text-center"><%= item.price %></td>
+      <td class="text-center"><%= item.genre.name %></td>
     </tr>
   </tbody>
-</table>
-<% end %>
-
-<%= link_to "商品追加", new_admin_item_path %><br>
-<%= link_to "顧客一覧", admin_customers_path %>
+  <% end %>
+</table>  <%# end-table　でないと変になる %>
