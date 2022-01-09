@@ -1,5 +1,6 @@
 class Public::CartItemsController < ApplicationController
-  before_action :authenticate_customer!
+  before_action :authenticate_customer!,except:[:index]
+  protect_from_forgery
 
   def index
     @cart_items = current_customer.cart_items.all
@@ -25,10 +26,10 @@ class Public::CartItemsController < ApplicationController
   end
 
   def update
-    binding.pry
-    @amount = CartItem.find(cart_item_params[:id])
+    amount = CartItem.find(cart_item_params[:id][:amount])
     @amount = params[:cart_item][:amount]
-    @amount.update
+    amount = @amount
+    amount.update
     redirect_to cart_items_path
   end
 
@@ -49,6 +50,10 @@ class Public::CartItemsController < ApplicationController
   private
   def cart_item_params
     params.require(:cart_item).permit(:item_id, :amount)
+  end
+
+  def amount_params
+    params.require(:cart_item).permit(:amount)
   end
 
 end
