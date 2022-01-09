@@ -1,4 +1,5 @@
-<h2>新規投稿</h2>
+<div class="container">
+<h2>商品新規登録</h2>
 
 <%# undefied method ●●path　が出現する場合、:url=>~~の書き方が必要になってくる %>
 <%= form_with model: @item,:url => {:action => :create}, local:true do |f| %>
@@ -18,5 +19,13 @@
 <h4>税込価格</h4>
 <%= f.number_field :price %>
 
-<%= f.submit "追加" %>
+<h4>販売ステータス</h4>
+<%= f.radio_button :is_active, Item.active_sales.key(0) %>
+<%= f.label :is_active, Item.active_sales_i18n[:sale] %>
+
+<%= f.radio_button :is_active, Item.active_sales.key(1) %>
+<%= f.label :payment_method, Item.active_sales_i18n[:stop_sale] %><br>
+
+<%= f.submit "新規登録", class: "btn btn-success" %>
 <% end %>
+</div>

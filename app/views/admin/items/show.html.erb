@@ -1,17 +1,16 @@
 <div class="container">
   <h2>商品詳細</h2>
   <div class="row">
-   <div class="col-1">
-    <%= attachment_image_tag @item, :image, :fill, 180, 110 %>
+    <div class="col-lg-6">
+    <%= attachment_image_tag @item, :image, :fill, 250, 210 %>
     </div>
-
-    <div class="col-6">
-      商品名<%= @item.name %>
-
-      <%= @item.price %>
-      <%= @item.introduction %>
+    <div class="col-lg-6">
+      商品名：<%= @item.name %><br>
+      商品説明：<%= @item.introduction %><br>
+      ジャンル：<%= @item.genre.name %><br>
+      税込価格：<%= @item.price %><br>
       <% if admin_signed_in? %>
-      <%= link_to '編集', edit_admin_item_path(@item.id), class: "btn btn-success" %>
+      <%= link_to '編集する', edit_admin_item_path(@item.id), class: "btn btn-success" %>
       <% end %>
     </div>
   </div>
