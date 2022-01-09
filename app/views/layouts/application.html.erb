@@ -47,7 +47,9 @@
             <li class="nav-item">
               <%= link_to 'ログアウト', destroy_customer_session_path, class: 'nav-link text-dark', method: :delete %>
             </li>
-            <p class="text-center">ようこそ、<%= current_customer.last_name %>さん</p>
+          </ul>
+            <br>ようこそ、<%= current_customer.last_name %>さん
+
             <% else %>
             <li class="nav-item">
               <%= link_to "About", about_path, class: 'nav-link text-dark' %>

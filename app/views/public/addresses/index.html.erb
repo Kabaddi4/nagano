@@ -1,23 +1,34 @@
 <div class="container">
   <div class="row">
+  <%= form_with model:@address, local:true do |f| %>
+  <%= f.hidden_field :customer_id, value: current_customer.id %>
+  <p>郵便番号：<%= f.number_field :postal_code, class:"mx-3" %></p>
+  <p>住所：<%= f.text_field :address, class:"mx-5" %></p>
+  <p>宛名：<%= f.text_field :name, class:"mx-5" %><%= f.submit "新規登録", class: "btn btn-success mx-4" %></p>
+  </div>
+<% end %>
+
+
+
+  <div class="row">
   <table>
     <thead>
       <tr>
-        <th class="text-start">会員id</th>
-        <th class="text-center">宛名</th>
-        <th>郵便番号</th>
+        <th class="text-start">郵便番号</th>
         <th class="text-center">住所</th>
+        <th class="text-center">宛名</th>
+        <th></th>
       </tr>
     </thead>
     <div class="col-md6">
     <% @addresses.each do |address| %>
     <tbody>
       <tr>
-        <td><%= address.customer_id %></td>
-        <td><%= address.name %></td>
-        <td><%= address.postal_code %></td>
-        <td><%= address.address %></td>
-        <td><%= link_to "編集", edit_address_path(address.id) %></td>
+        <td class="pr-2 text-center"><%= address.postal_code %></td>
+        <td class="pr-2 text-center"><%= address.address %></td>
+        <td class="px-2 text-center"><%= address.name %></td>
+        <td><%= link_to "編集する", edit_address_path(address.id), class: "btn btn-success px-3" %></td>
+        <td><%= link_to "削除する", address_path(address.id), class: "btn btn-danger ml-4" %></td>
       </tr>
     </tbody>
     <% end %>
@@ -25,15 +36,4 @@
   </table>
   </div>
 </div>
-
-<%= form_with model:@address, local:true do |f| %>
-  <%= f.hidden_field :customer_id, value: current_customer.id %>
-  <p>宛名：<%= f.text_field :name %></p>
-  <p>郵便番号：<%= f.number_field :postal_code %></p>
-  <p>住所：<%= f.text_field :address %></p>
-  <p></p>
-  <%= f.submit "住所登録" %>
-<% end %>
-
-
 
