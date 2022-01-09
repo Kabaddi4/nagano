@@ -3,11 +3,11 @@
     <h3 class="col-md-12">商品一覧</h3>
     <% @items.each do |item| %>
     <div class="col-md-3">
-      <%=link_to item_path(item.id) do %>
+      <%=link_to item_path(item.id) do %><%#path(id)や(:id)ではURLがおかしくなるので%>
       <%= attachment_image_tag item, :image, :fill, 160, 120, format: "jpeg" %><% end %>
       <div class="font-weight-bold"><%= item.name %></div>
       <div class="font-weight-bold">¥<%= item.price %></div>
-      <%= link_to "詳細", item_path(item.id) %><%#path(id)や(:id)ではURLがおかしくなるので%>
+
     </div>
     <% end %>
   </div>
