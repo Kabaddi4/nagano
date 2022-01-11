@@ -7,4 +7,6 @@ class Customer < ApplicationRecord
   has_many :orders
   has_many :addresss
   has_many :cart_items
+
+  enum status: { owned: 0,withdrawal: 1 }
 end

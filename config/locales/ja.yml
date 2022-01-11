@@ -11,3 +11,10 @@ ja:
       active_sale:
         sale: '販売中'
         stop_sale: '販売停止中'
+
+ja:
+  enums:
+    customer:
+      status:
+        owned: '有効'
+        withdrawal: '退会'
