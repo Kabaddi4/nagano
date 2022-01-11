@@ -10,6 +10,7 @@
       <th>商品名</th>
       <th>税抜価格</th>
       <th>ジャンル</th>
+      <th>販売ステータス</th>
     </tr>
   </thead>
 <% @items.each do |item| %>
@@ -19,6 +20,7 @@
       <td class="text-center"><%= link_to item.name, admin_item_path(item.id) %></td>
       <td class="text-center"><%= item.price %></td>
       <td class="text-center"><%= item.genre.name %></td>
+      <td class="text-center"><%= Item.active_sales_i18n %></td> <%#正しいのは item.active_sales_i18n なのだが、 "_18n"以降の部分が反映されない・・・%>
     </tr>
   </tbody>
   <% end %>
