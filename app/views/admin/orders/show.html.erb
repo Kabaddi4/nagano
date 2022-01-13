@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row">
+    <h4>注文履歴詳細</h4>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-7">
+      <h4>購入者<%= @order.name %></h4>
+      <h4>注文日<%= @order.created_at %></h4>
+      <h4>配送先<%= @order.postal_code %></h4>
+      <h4>支払方法<%= @order.payment_method %></h4>
+    </div>
+  </div>
+
+  <div class="row mt-5">
+  <table>
+    <thead>
+    <tr>
+      <th>商品名</th>
+      <th>単価(税込)</th>
+      <th>数量</th>
+      <th>小計</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <% @orders.each do |order| %>
+      <td class="text-center"><%= order.item.name %></td>
+      <td class="text-center"><%= order.price %></td>
+      <td class="text-center"><%= order.amount %></td>
+      <td class="text-center"><%= order.order.total_payment %></td>
+    </tr>
+    <% end %>
+    </tbody>
+  </table>
+  </div>
+</div>
