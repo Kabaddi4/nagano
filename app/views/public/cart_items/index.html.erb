@@ -22,7 +22,9 @@
                 <td class="text-center"><%= cart_item.subtotal %></td>
                 <td><%= link_to "削除", "/cart_items/#{cart_item.id}", method: :delete %></td>
             </tr>
+            <div class="text-border-">
             <% @total += cart_item.subtotal %>
+            </div>
             <% end %>
 
         </tbody>

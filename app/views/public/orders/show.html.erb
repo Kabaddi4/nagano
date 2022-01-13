@@ -1,39 +1,48 @@
 <div class="container">
   <div class="row">
-    <div class="col">
+    <h4 class="col-lg-6">注文履歴詳細</h4>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-3 my-3">
+    <h4>注文情報</h4>
       注文日：<%= @order.created_at %>
-    </div>
-    <div class="col">
-      配送先：<%= @order.postal_code %><%= @order.address %>
-    </div>
-    <div class="col">
+      配送先：<%= @order.postal_code %>
+              <%= @order.address %>
+              <%= @order.name %>
       支払方法：<%= @order.payment_method %>
     </div>
-  </div>
 
-  <div class="row">
-    <div class="col">
-      <h4>注文した商品</h4>
+    <div class="col-lg-4 my-3">
+    <h4 class=>請求情報</h4>
+      <div class="px-2">
+      商品合計：<%= @order.total_payment %>
+      配送料：<%= @order.postage %>
+      ご請求額：<%= @total %>
+      </div>
     </div>
   </div>
-  <div class="row">
-  <% @orders.each do |order| %>
-    商品名：<%= order.item.name %>
-    単価：<%= order.item.price %>
-    個数：<%= order.amount %>
-    小計<%= order.price * order.amount %>
-    <br>
-  <% end %>
-  </div>
 
-  <div class="row">
-    <div class="col">
-    <h4 class="my-3">請求情報</h4>
-      <div class="px-2">
-      商品合計(税込)：<%= @order.total_payment %>
-      送料：<%= @order.postage %>
-      支払金額：<%= @total %>
-      </div>
+  <div class="row mt-5">
+    <div class="col-lg-5">
+    <h4>注文した商品</h4>
+     <table>
+      <tr>
+        <th>商品</th>
+        <th>単価(税込)</th>
+        <th>個数</th>
+        <th>小計</th>
+      </tr>
+      <tr>
+      <% @orders.each do |order| %>
+        <td><%= order.item.name %></td>
+        <td class="text-center"><%= order.item.price %></td>
+        <td class="text-center"><%= order.amount %></td>
+        <td class="text-center"><%= order.price * order.amount %></td>
+      </tr>
+      <% end %>
+    </table>
+
     </div>
   </div>
 
