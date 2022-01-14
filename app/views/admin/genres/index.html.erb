@@ -22,13 +22,11 @@
     <table>
       <tr>
       <% @genres.each do |genre| %>
-        <td class="py-2"><%= genre.name %><%= link_to "編集する", edit_admin_genre_path(genre.id), class: "btn btn-success ml-3" %></td>
+        <td class="pr-5 py-2"><%= genre.name %></td>
+        <td class="py-2"><%= link_to "編集する", edit_admin_genre_path(genre.id), class: "btn btn-success ml-3" %></td>
       </tr>
       <% end %>
     </table>
-
-
-
-    </div>
   </div>
+
 </div>
