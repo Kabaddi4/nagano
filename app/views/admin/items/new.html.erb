@@ -8,24 +8,19 @@
 <%= f.attachment_field :image %>
 
 <h4>商品名</h4>
-<%= f.text_field :name %>
+<%= f.text_field :name, class:"px-3" %>
 
 <h4>説明</h4>
-<%= f.text_field :introduction %>
+<%= f.text_field :introduction, class:"px-3 py-5" %>
 
 <h4>ジャンル</h4>
 <%= f.collection_select :genre_id, Genre.all, :id, :name %>
 
 <h4>税込価格</h4>
-<%= f.number_field :price %>
+<%= f.number_field :price %>円
 
-<h4>販売ステータス</h4>
-<%= f.radio_button :is_active, Item.active_sales.key(0) %>
-<%= f.label :is_active, Item.active_sales_i18n[:sale] %>
-
-<%= f.radio_button :is_active, Item.active_sales.key(1) %>
-<%= f.label :payment_method, Item.active_sales_i18n[:stop_sale] %><br>
-
+<div class="row ml-6 my-3">
 <%= f.submit "新規登録", class: "btn btn-success" %>
+</div>
 <% end %>
 </div>
