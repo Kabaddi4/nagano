@@ -29,7 +29,7 @@ class Public::CartItemsController < ApplicationController
     change = CartItem.find(params[:id])
     amount = params[:cart_item][:amount]
     change.amount = amount
-    change.update(cart_item_params)
+    change.update(amount_params)
     redirect_to cart_items_path
   end
 

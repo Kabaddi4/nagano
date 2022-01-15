@@ -8,14 +8,14 @@
     <div class="col-lg-3">
     <p class="font-weight-bold"><%= @item.name %></p>
     <p class=""><%= @item.introduction %></p>
-    <p class="font-weight-bold">¥<%= @item.price %></h4>
+    <p class="font-weight-bold">¥<%= @item.price %>(税込)</h4>
     </div>
   </div>
 
 
 
   <%= f.hidden_field :item_id, value: @item.id %>
-  <p>数量:<%= f.select :amount, *[1..3] %></p>
+  <p>数量:<%= f.select :amount, *[1..5] %></p>
 
   <%= f.submit "カートに入れる", class: "btn btn-success" %>
   <% end %>
