@@ -5,6 +5,12 @@ class Public::OrdersController < ApplicationController
   end
 
   def new
+    cart = current_customer.cart_items
+    if cart.empty?
+      redirect_to root_path
+    else
+
+    end
     @order = Order.new
   end
 
