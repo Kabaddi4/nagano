@@ -4,13 +4,21 @@
   </div>
 
   <div class="row">
-    <div class="col-lg-3 my-3">
+    <div class="col-lg-7 my-3">
     <h4>注文情報</h4>
-      注文日：<%= @order.created_at %>
-      配送先：<%= @order.postal_code %>
+    <table>
+      <tr>
+        <td>注文日：<%= @order.created_at %></td>
+      </tr>
+      <tr>
+        <td> 配送先：<%= @order.postal_code %>
               <%= @order.address %>
-              <%= @order.name %>
-      支払方法：<%= @order.payment_method %>
+              <%= @order.name %></td>
+      </tr>
+      <tr>
+        <td>支払方法：<%= @order.payment_method %></td>
+      </tr>
+    </table>
     </div>
 
     <div class="col-lg-4 my-3">

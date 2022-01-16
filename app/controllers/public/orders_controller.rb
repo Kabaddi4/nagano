@@ -1,7 +1,8 @@
 class Public::OrdersController < ApplicationController
 
   def index
-    @orders = Order.all
+    order = Order.all
+    @orders = current_customer.orders
   end
 
   def new
@@ -21,6 +22,7 @@ class Public::OrdersController < ApplicationController
     order.postal_code = params[:order][:postal_code]
     order.address = params[:order][:address]
     order.name = params[:order][:name]
+    binding.pry
     order.payment_method = params[:order][:payment_method]
     order.total_payment = params[:order][:total_payment]
     order.postage = 800
@@ -73,6 +75,8 @@ class Public::OrdersController < ApplicationController
   end
 
   def complete
+    cart_item = CartItem.all
+    current_customer.cart_items.destroy_all
   end
 
   private
