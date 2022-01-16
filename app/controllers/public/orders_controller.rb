@@ -22,7 +22,6 @@ class Public::OrdersController < ApplicationController
     order.postal_code = params[:order][:postal_code]
     order.address = params[:order][:address]
     order.name = params[:order][:name]
-    binding.pry
     order.payment_method = params[:order][:payment_method]
     order.total_payment = params[:order][:total_payment]
     order.postage = 800
