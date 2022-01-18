@@ -13,25 +13,30 @@
   </div>
 
   <div class="row mt-5">
-  <table>
-    <thead>
-    <tr>
-      <th>商品名</th>
-      <th>単価(税込)</th>
-      <th>数量</th>
-      <th>小計</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-    <% @orders.each do |order| %>
-      <td class="text-center"><%= order.item.name %></td>
-      <td class="text-center"><%= order.price %></td>
-      <td class="text-center"><%= order.amount %></td>
-      <td class="text-center"><%= order.order.total_payment %></td>
-    </tr>
-    <% end %>
-    </tbody>
-  </table>
+    <table>
+      <thead>
+      <tr>
+        <th>商品名</th>
+        <th>単価(税込)</th>
+        <th>数量</th>
+        <th>小計</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+      <% @details.each do |detail| %> <%#コントローラーで1回紐付けてから、each doで抽出後、もう1回紐付け先から持ってくる事はできる%>
+        <td><%= detail.item.name %></td>
+        <td class="text-center"><%= detail.price %></td>
+        <td class="text-center"><%= detail.amount %></td>
+        <td class="text-center"><%= detail.price * detail.amount %></td>
+      </tr>
+      <% end %>
+    </table>
+
+    <div class="col-lg-6 my-2">
+      商品合計:  <%= @order.total_payment %>円<br>
+      送料：  <%= @order.postage %>円<br>
+      請求額合計：  <%= @order.total_payment +  @order.postage %>円
+    </div>
   </div>
 </div>

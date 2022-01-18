@@ -6,8 +6,13 @@ class Admin::OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
-    current_orders = OrderDetail.all
-    binding.pry
-    @orders = @order.current_orders
+    @details = @order.order_details.all
+
+    #@order_details = order.order_details.all
+
+    #customer = Customer.find(params[:id])
+    #orders = customer.orders.all
+    #binding.pry
+    #@orders = orders.order_details.all
   end
 end
