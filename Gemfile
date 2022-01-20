@@ -73,6 +73,7 @@ gem "refile-mini_magick"
 
 #enum
 gem "enum_help"
+gem 'rails-i18n'
 
 #Bootstrap
 gem 'bootstrap', '~>4.5'

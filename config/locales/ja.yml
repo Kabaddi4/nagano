@@ -5,15 +5,7 @@ ja:
         credit_card: 'クレジットカード'
         transfer: '銀行振込'
 
-ja:
-  enums:
-    item:
-      active_sale:
-        sale: '販売中'
-        stop_sale: '販売停止中'
-
-ja:
     customer:
-      status:
+      is_deleted:
         owned: '有効'
         withdrawal: '退会'
