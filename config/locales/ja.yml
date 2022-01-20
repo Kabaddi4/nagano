@@ -13,7 +13,6 @@ ja:
         stop_sale: '販売停止中'
 
 ja:
-  enums:
     customer:
       status:
         owned: '有効'

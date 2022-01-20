@@ -8,5 +8,7 @@ class Customer < ApplicationRecord
   has_many :addresss
   has_many :cart_items
 
-  enum status: { owned: 0,withdrawal: 1 }
+  def active_for_authantication?
+    super && !is_deleted
+  end
 end

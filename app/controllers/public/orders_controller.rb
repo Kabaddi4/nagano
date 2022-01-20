@@ -23,6 +23,7 @@ class Public::OrdersController < ApplicationController
     order.address = params[:order][:address]
     order.name = params[:order][:name]
     order.payment_method = params[:order][:payment_method]
+    binding.pry
     order.total_payment = params[:order][:total_payment]
     order.postage = 800
     order.status = "true"

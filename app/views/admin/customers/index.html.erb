@@ -4,6 +4,7 @@
       <th>会員id</th>
       <th>氏名</th>
       <th>メールアドレス</th>
+      <th>ステータス</th>
     </tr>
   </thead>
   <tbody>
@@ -15,6 +16,7 @@
         <%= customer.last_name %><%= customer.first_name %>
         </td><% end %>
         <td class="text-center px-3"><%= customer.email %></td>
+        <td class="text-center px-3"><%= customer.is_deleted %></td>
       </tr>
       <% end %>
   </tbody>

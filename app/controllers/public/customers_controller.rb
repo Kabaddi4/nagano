@@ -22,7 +22,7 @@ class Public::CustomersController < ApplicationController
     @customer = Customer.find_by(id: params[:id])
     @customer.update(is_deleted: true)
     reset_session
-    redirect_to customer_session_path
+    redirect_to root_path
   end
 
   private
