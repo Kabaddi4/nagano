@@ -1,39 +1,13 @@
 <header><h2>admin site</h2></header>
 <main>
   <% if admin_signed_in? %>
-    <table>
-      <thead>
-        <tr>
-          <th class="text-center">購入日時</th>
-          <th class="text-center">購入者</th>
-          <th class="text-center">注文個数</th>
-        </tr>
-      </thead>
-
-      <tbody>
-      <% @orders.each do |order_detail| %>
-        <tr>
-        <div class="col-px3">
-          <td class="text-center"><%= order_detail.order.created_at %></td>
-          <td class="text-center"><%= order_detail.order.name %></td>
-          <td class="text-center"><%= order_detail.amount %></td>
-        </div>
-        </tr>
-         <% end %>
-      </tbody>
-
-    </table>
-  <% else %>
-  <% end %>
-</main>
-<footer>
-  <% if admin_signed_in? %>
-    <%= link_to "顧客一覧", admin_customers_path %>
-    <%= link_to "商品一覧", admin_items_path %>
     <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
   <% else %>
     <%= link_to '管理者権限でログイン', new_admin_session_path %><br>
     <%= link_to '管理者アカウント生成', new_admin_registration_path %>
   <% end %>
+</main>
+<footer>
+
 
 </footer>
