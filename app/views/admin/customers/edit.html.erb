@@ -1,12 +1,12 @@
 <div class="container">
     <div class="row">
-        <h4><%= @customer.last_name %><%= @customer.first_name %>さんの会員情報編集</h4>
+        <h4><%= @admin_customer.last_name %><%= @admin_customer.first_name %>さんの会員情報編集</h4>
     </div>
 
-<%= form_with model:@customer, local:true do |f| %>
+<%= form_with model:@admin_customer, url: {controller: 'admin/customers', action: 'update' }, local:true do |f| %>
      <div class="row my-2">
         <div class="col-lg-4">
-            会員ID:<%= @customer.id %>
+            会員ID:<%= @admin_customer.id %>
         </div>
     </div>
     <div class="row mb-2">
@@ -41,11 +41,11 @@
     </div>
     <div class="row mb-2">
         <div class="col-lg-4">
-            会員ステータス：<%= f.radio_button :status, Customer.statuses.key(0) %>
-                            <%= f.label :status, Customer.statuses_i18n[:owned] %>
+            会員ステータス：<%= f.radio_button :is_deleted, Customer.is_deleteds.key(false) %>
+                            <%= f.label :is_deleted, Customer.is_deleteds_i18n[:owned] %>
 
-                            <%= f.radio_button :status, Customer.statuses.key(1) %>
-                            <%= f.label :status, Customer.statuses_i18n[:withdrawal] %>
+                            <%= f.radio_button :is_deleted, Customer.is_deleteds.key(true) %>
+                            <%= f.label :is_deleted, Customer.is_deleteds_i18n[:withdrawal] %>
         </div>
     </div>
 

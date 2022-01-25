@@ -1,46 +1,46 @@
 <div class="container">
     <div class="row">
-        <h4><%= @customer.last_name %><%= @customer.first_name %>さんの会員詳細</h4>
+        <h4><%= @admin_customer.last_name %><%= @admin_customer.first_name %>さんの会員詳細</h4>
     </div>
 
     <div class="row my-2">
         <div class="col-lg-4">
-            会員ID:<%= @customer.id %>
+            会員ID:<%= @admin_customer.id %>
         </div>
     </div>
     <div class="row mb-2">
         <div class="col-lg-4">
-            氏名：<%= @customer.last_name %><%= @customer.first_name %>
+            氏名：<%= @admin_customer.last_name %><%= @admin_customer.first_name %>
         </div>
     </div>
     <div class="row mb-2">
         <div class="col-lg-4">
-            フリガナ:<%= @customer.last_name_kana %><%= @customer.first_name_kana %>
+            フリガナ:<%= @admin_customer.last_name_kana %><%= @admin_customer.first_name_kana %>
         </div>
     </div>
     <div class="row mb-2">
         <div class="col-lg-4">
-            郵便番号：<%= @customer.postal_code %>
+            郵便番号：<%= @admin_customer.postal_code %>
         </div>
     </div>
     <div class="row mb-2">
         <div class="col-lg-4">
-            住所：<%= @customer.customer_address %>
+            住所：<%= @admin_customer.customer_address %>
         </div>
     </div>
     <div class="row mb-2">
         <div class="col-lg-4">
-            電話番号：<%= @customer.telephone_number %>
+            電話番号：<%= @admin_customer.telephone_number %>
         </div>
     </div>
     <div class="row mb-2">
         <div class="col-lg-4">
-            メールアドレス：<%= @customer.email %>
+            メールアドレス：<%= @admin_customer.email %>
         </div>
     </div>
     <div class="row mb-2">
         <div class="col-lg-4">
-            会員ステータス：<%= @customer.is_deleted_i18n %>
+            会員ステータス：<%= @admin_customer.is_deleted_i18n %>
         </div>
     </div>
 
